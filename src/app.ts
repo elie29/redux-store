@@ -1,5 +1,9 @@
 import { renderTodos } from './utils';
 
+/**
+ * Returns the first Element within the document
+ * that matches the specified selector.
+ */
 const input = document.querySelector('input') as HTMLInputElement;
 const button = document.querySelector('button') as HTMLButtonElement;
 const destroy = document.querySelector('.unsubscribe') as HTMLButtonElement;
