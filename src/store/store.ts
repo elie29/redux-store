@@ -11,4 +11,12 @@ export class Store {
   get value() {
     return this.state;
   }
+
+  dispatch(action): void {
+    this.state = {
+      ...this.state, // merge current state
+      todos: [...this.state.todos, action.payload] // concat the new todo with todos
+    };
+    console.log(this.state);
+  }
 }
