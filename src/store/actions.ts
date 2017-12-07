@@ -3,15 +3,17 @@ export const REMOVE_TODO = '[Todo] Delete todo';
 
 export interface ActionInterface {
   readonly type: string;
-  payload: any;
+  payload: { label: string; complete: boolean };
 }
 
 export class AddTodo implements ActionInterface {
   readonly type = ADD_TODO;
-  constructor(public payload: {}) {}
+  constructor(public payload) {}
 }
 
 export class RemoveTodo implements ActionInterface {
   readonly type = REMOVE_TODO;
-  constructor(public payload: {}) {}
+  constructor(public payload) {}
 }
+
+export type TodoAction = AddTodo | RemoveTodo;

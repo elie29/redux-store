@@ -1,4 +1,4 @@
-import { ADD_TODO, REMOVE_TODO, ActionInterface } from './actions';
+import { ActionInterface, ADD_TODO, REMOVE_TODO, TodoAction } from './actions';
 
 export const initialState = {
   loaded: false,
@@ -8,7 +8,7 @@ export const initialState = {
 
 export function reducer(
   state = initialState, // in case state is null or undefined
-  action: ActionInterface
+  action: TodoAction
 ) {
   switch (action.type) {
     // use a block to accept const
