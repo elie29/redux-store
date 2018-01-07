@@ -1,8 +1,13 @@
 export class Store {
   private subscribers: Function[];
   private reducers: { [key: string]: Function };
+  // Store state contains all reducers states
   private state: { [key: string]: any };
 
+  /**
+   * @param reducers A list of reducers
+   * @param initialState An initial state
+   */
   constructor(reducers = {}, initialState = {}) {
     this.subscribers = [];
     this.reducers = reducers;
@@ -14,6 +19,9 @@ export class Store {
     return this.state;
   }
 
+  /**
+   * Returns a callback unsubscription
+   */
   subscribe(fn: Function) {
     this.subscribers = [...this.subscribers, fn];
     this.notify();

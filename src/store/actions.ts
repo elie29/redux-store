@@ -1,9 +1,16 @@
+/**
+ * Action namesapce for type purpose
+ */
 export const ADD_TODO = '[Todo] Add todo';
 export const REMOVE_TODO = '[Todo] Delete todo';
+export const GET_TODOS = '[Todo] Get todos';
 
+/**
+ * Action interface for Actions with type and payload data.
+ */
 export interface ActionInterface {
   readonly type: string;
-  payload: { label: string; complete: boolean };
+  payload?: { label: string; complete: boolean };
 }
 
 export class AddTodo implements ActionInterface {
@@ -16,4 +23,8 @@ export class RemoveTodo implements ActionInterface {
   constructor(public payload) {}
 }
 
-export type TodoAction = AddTodo | RemoveTodo;
+export class GetTodos implements ActionInterface {
+  readonly type = GET_TODOS;
+}
+
+export type TodoAction = AddTodo | RemoveTodo | GetTodos;
